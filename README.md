@@ -1,7 +1,7 @@
 # taoman
 基于网络查询的快速子域名收集工具
 
-    主要是为了快速收集 https://src.edu-info.edu.cn 平台的学校子域名写的一个小工具.
+    主要是为了快速收集 https://src.edu-info.edu.cn 平台的学校子域名等目标写的一些工具集合.
 
 data 目录:  
 
@@ -13,9 +13,16 @@ data 目录:
 edusrc_SLD_name_raw_list			常用二级域名单词元数据
 edusrc_SLD_top_1000				1000个最常用的二级域名单词
 edusrc_SLD_top_3000				3000个最常用的二级域名单词
-edusrc_SLD_unique_name			去重后的所有二级域名单词
+edusrc_SLD_unique_name				去重后的所有二级域名单词
 
 edusrc_MLD_name_raw_list			常用多级域名单词元数据
 edusrc_MLD_top_300				300个最常用的多级域名单词
 edusrc_MLD_top_600				600个最常用的多级域名单词
+```
+
+others 目录:   
+
+```
+domain_to_ip.py		一个批量解析域名为ip地址的小脚本,使用socket.gethostbyname方法实现,自动修正非法域名、结果去重.
+
 ```
