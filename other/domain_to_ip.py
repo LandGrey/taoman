@@ -16,7 +16,7 @@ import threading
 
 
 class Parser(threading.Thread):
-    global born
+    global borname
 
     def __init__(self, queue):
         threading.Thread.__init__(self)
@@ -29,7 +29,7 @@ class Parser(threading.Thread):
                     break
             try:
                 ip = socket.gethostbyname(element)
-                born.append(ip)
+                borname.append(ip)
                 sys.stdout.write("\r[+] Parsing {0:20} -> {1:15}".format(element, ip))
                 sys.stdout.flush()
             except Exception as e:
@@ -55,7 +55,7 @@ def urlfillter(url):
 
 
 def start():
-    global domains, threads, domain_file_path
+    global targets, threads, domain_file_path
 
     with open(domain_file_path, 'r') as f:
         for dom in f.readlines():
@@ -96,20 +96,20 @@ if __name__ == '__main__':
     print("[+] A tiny Domain name To Ip script start \n"
           "                                    Build By LandGrey\n")
     threads = 50
-    born = []
-    domains = []
+    borname = []
+    targets = []
     domain_file_path = sys.argv[1]
     store_file_path = r'ip_lists.txt'
 
     start()
     count = 0
     with open(store_file_path, 'a') as _:
-        for x in unique(born):
+        for x in unique(borname):
             try:
                 _.write(str(x) + "\n")
                 count += 1
             except:
                 pass
-    print("\n[+] Parsed   : {0}     domains\n"
+    print("\n[+] Parsed   : {0}     targets\n"
           "[+] Total of : {1}     ip\n"
-          "[+] Cost     : {2:.6} seconds".format(len(domains), count, time.time()-start_time))
+          "[+] Cost     : {2:.6} seconds".format(len(targets), count, time.time() - start_time))
