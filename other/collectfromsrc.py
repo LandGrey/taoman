@@ -154,6 +154,8 @@ if __name__ == '__main__':
     original_uri = r'https://src.edu-info.edu.cn/list/firm/'
 
     root_path = os.path.dirname(os.path.dirname(os.path.abspath(sys.argv[0])))
+    if not os.path.exists(os.path.join(root_path, 'data')):
+        os.mkdir(os.path.join(root_path, 'data'))
     store_name_path = os.path.join(root_path, 'data', 'edusrc_school_name.txt')
     store_domain_path = os.path.join(root_path, 'data', 'edusrc_school_domains.txt')
 
