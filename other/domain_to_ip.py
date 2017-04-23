@@ -59,11 +59,11 @@ def start():
 
     with open(domain_file_path, 'r') as f:
         for dom in f.readlines():
-            domains.append(urlfillter(dom.strip()))
+            targets.append(urlfillter(dom.strip()))
 
     queue = Queue.Queue()
     worker_threads = build_worker_pool(queue, threads)
-    for url in domains:
+    for url in targets:
             queue.put(url)
     for worker in worker_threads:
             queue.put('quit')
