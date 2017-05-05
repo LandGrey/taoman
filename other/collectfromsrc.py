@@ -142,9 +142,9 @@ def name2domain(name, result, lack):
 if __name__ == '__main__':
     start_time = time.time()
 
-    # 7111-3076+1=4036
+    # 7112-3076+1=4037
     starts = 3076
-    ends = 7111
+    ends = 7112
 
     threads = 30
     borname = []
